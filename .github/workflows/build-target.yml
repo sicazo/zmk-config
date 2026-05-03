@@ -1,0 +1,32 @@
+name: Build specific firmware target
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "Firmware target to build"
+        required: true
+        type: choice
+        options:
+          - left
+          - right
+          - dongle
+
+jobs:
+  build-left:
+    if: ${{ inputs.target == 'left' }}
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    with:
+      build_matrix_path: build-left.yaml
+
+  build-right:
+    if: ${{ inputs.target == 'right' }}
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    with:
+      build_matrix_path: build-right.yaml
+
+  build-dongle:
+    if: ${{ inputs.target == 'dongle' }}
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    with:
+      build_matrix_path: build-dongle.yaml
