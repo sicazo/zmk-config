@@ -57,7 +57,7 @@
             bindings = <
            &kp Q       &kp W       &kp F          &kp P         &kp B      &kp J          &kp L        &kp U        &kp Y       &tog 2
            &hm LGUI A  &hm LALT R  &hm LCTRL S    &hm LSHIFT T  &kp G      &kp M          &hm RSHFT N  &hm RCTRL E  &hm RALT I  &hm RGUI O
-&lt 1 TAB  &kp X       &kp C       &kp D          &kp V         &kp Z      &kp K          &kp H        &kp COMMA    &kp DOT     &kp SLASH   &kp APOSTROPHE
+&lt 1 TAB  &kp X       &kp C       &kp D          &kp V         &kp Z      &kp K          &kp H        &kp COMMA    &kp DOT     &kp SLASH   &tog 2
                                    &mt LCTRL DEL  &lt 1 SPACE   &kp ESC    &kp BACKSPACE  &lt 2 ENTER  &kp MINUS
             >;
         };
@@ -65,11 +65,10 @@
         Symbols {
             display-name = "Symbols";
             bindings = <
-              &kp CARET       &kp F2          &kp F3          &kp F4      &kp F5      &kp F6      &kp F7         &kp F8         &kp F9        &kp F10
-              &kp AMPERSAND        &kp LBRC        &kp RBRC        &kp MINUS   &kp PLUS    &kp ASTERISK &kp NUMBER_7         &kp NUMBER_8         &kp NUMBER_9        &kp C_VOL_UP
-&kp LCTRL     &kp LPAR        &kp RPAR        &kp HASH        &kp EQUAL   &kp EXCL    &kp NUMBER_4         &kp NUMBER_5         &kp NUMBER_6        &kp C_VOL_DN   &kp C_PP
-&kp LALT      &kp LBKT        &kp RBKT        &kp BSLH        &kp UNDER   &kp FSLH    &kp NUMBER_1         &kp NUMBER_2         &kp NUMBER_3        &kp DEL        &kp C_STOP
-                                            &kp DQT          &kp SQT     &kp PG_UP    &kp BACKSPACE    &kp NUMBER_0         &kp LSHFT
+           &kp CARET      &kp F2    &kp F3    &kp F4     &kp F5      &kp F6        &kp F7        &kp F8        &kp F9        &kp F10
+           &kp AMPERSAND  &kp LBRC  &kp RBRC  &kp MINUS  &kp PLUS    &kp ASTERISK  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp C_VOL_UP
+&kp LCTRL  &kp LPAR       &kp RPAR  &kp HASH  &kp EQUAL  &kp EXCL    &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp C_VOL_DN  &kp C_PP      &kp LALT
+                                    &kp LBKT  &kp RBKT   &kp BSLH    &kp UNDER     &kp FSLH      &kp NUMBER_1
             >;
         };
 
@@ -78,7 +77,7 @@
             bindings = <
            &kp Q       &kp W       &kp E          &kp R         &kp T      &kp Y          &kp U        &kp I        &kp O       &kp P
            &hm LGUI A  &hm LALT S  &hm LCTRL D    &hm LSHIFT F  &kp G      &kp H          &hm RSHFT J  &hm RCTRL K  &hm RALT L  &hm RGUI SEMICOLON
-&lt 1 TAB  &kp Z       &kp X       &kp C          &kp V         &kp B      &kp N          &kp M        &kp COMMA    &kp DOT     &kp SLASH   &kp APOSTROPHE
+&lt 1 TAB  &kp Z       &kp X       &kp C          &kp V         &kp B      &kp N          &kp M        &kp COMMA    &kp DOT     &kp SLASH           &tog 0
                                    &mt LCTRL DEL  &lt 1 SPACE   &kp ESC    &kp BACKSPACE  &lt 2 ENTER  &kp MINUS
             >;
         };
