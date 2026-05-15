@@ -25,14 +25,14 @@
    ========================= */
 
 &mt {
-    tapping-term-ms = <150>;
+    tapping-term-ms = <2000>;
     quick-tap-ms = <120>;
     flavor = "tap-preferred";
     global-quick-tap;
 };
 
 &lt {
-    tapping-term-ms = <150>;
+    tapping-term-ms = <2000>;
     quick-tap-ms = <120>;
     flavor = "tap-preferred";
 };
