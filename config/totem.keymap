@@ -77,7 +77,7 @@
             bindings = <
                   &kp TAB         &kp Z       &kp X       &kp C       &kp V      &trans      &trans      &trans      &trans      &trans
                   &kp LEFT_SHIFT  &kp Q       &kp W       &kp E       &kp R      &trans      &trans      &trans      &trans      &trans
-&lt 1 LEFT_CTRL   &kp LCTRL      &kp A       &kp S       &kp D       &kp F      &trans      &trans      &trans      &trans      &trans      &tog 2
+&lt 1 LCTRL   &kp LCTRL      &kp A       &kp S       &kp D       &kp F      &trans      &trans      &trans      &trans      &trans      &tog 2
                                              &kp ESC     &kp LALT    &kp SPACE  &kp BACKSPACE  &kp ENTER  &mo 1
             >;
         };
