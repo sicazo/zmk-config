@@ -3,7 +3,7 @@
 //                                                        ▄▀▀▀▄  ▄  ▄▀▀▀▄  ▄  ▄▀▀▀▄  █  ▄▀▀▀▄
 //                                                        █   █  █  █   █  █  █   █  █  █   █
 //                                                         ▀▀▀   █   ▀▀▀   █   ▀▀▀   ▀   ▀▀▀
-//                                                               █      ▄▄▄█▄▄▄    █   █  
+//                                                               █      ▄▄▄█▄▄▄    █   █
 //                                                               ▀      █  █  █     █▄█
 //                                                             ▀▀▀▀▀    █  █  █      ▀
 //                                                                      ▀  ▀  ▀
@@ -14,25 +14,22 @@
 #include <dt-bindings/zmk/keys.h>
 
 #define Base        0
-#define Nav         1
-#define Sym         2
-#define Fun         3
-#define Game        4
-#define Gameplus    5
+#define Sym         1
+#define Game        2
 
 /* =========================
    UNIFIED HOLD-TAP SETTINGS
    ========================= */
 
 &mt {
-    tapping-term-ms = <150>;
+    tapping-term-ms = <2000>;
     quick-tap-ms = <120>;
     flavor = "tap-preferred";
     global-quick-tap;
 };
 
 &lt {
-    tapping-term-ms = <150>;
+    tapping-term-ms = <2000>;
     quick-tap-ms = <120>;
     flavor = "tap-preferred";
 };
@@ -40,36 +37,34 @@
 / {
     combos { compatible = "zmk,combos"; };
 
+    behaviors {
+        ge: gui_esc {
+            compatible = "zmk,behavior-hold-tap";
+            label = "GUI_ESC";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <250>;
+            quick-tap-ms = <150>;
+            bindings =
+                <&kp>,
+                <&kp>;
+        };
+
+        ct: ctrl_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "CTRL_TAP";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <250>;
+            quick-tap-ms = <150>;
+            bindings =
+                <&kp>,
+                <&kp>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
-
-        /* =========================
-           COLEMAK LAYER
-           ========================= */
-
-        Colemak {
-            display-name = "Colemak";
-            bindings = <
-                  &kp Q       &kp W       &kp F          &kp P         &kp B      &kp J          &kp L         &kp U        &kp Y       &kp COLON
-                  &mt LGUI A  &mt LALT R  &mt LCTRL S    &mt LSHIFT T  &kp G      &kp M          &mt RSHIFT N  &mt RCTRL E  &mt RALT I  &mt RGUI O
-&lt 1 LEFT_SHIFT  &kp X       &kp C       &kp D          &kp V         &kp Z      &kp K          &kp H         &kp COMMA    &kp DOT     &kp SLASH   &tog 2
-                                          &mt LCTRL DEL  &lt 1 SPACE   &kp ESC    &kp BACKSPACE  &lt 2 ENTER   &kp MINUS
-            >;
-        };
-
-        /* =========================
-           SYMBOL LAYER
-           ========================= */
-
-        Symbols {
-            display-name = "Symbols";
-            bindings = <
-           &kp CARET      &kp F2    &kp F3    &kp F4     &kp F5      &kp F6        &kp F7        &kp F8        &kp F9        &kp F10
-           &kp AMPERSAND  &kp LBRC  &kp RBRC  &kp MINUS  &kp PLUS    &kp ASTERISK  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp C_VOL_UP
-&kp LCTRL  &kp LPAR       &kp RPAR  &kp HASH  &kp EQUAL  &kp EXCL    &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp C_VOL_DN  &kp C_PP      &kp LALT
-                                    &kp LBKT  &kp RBKT   &kp BSLH    &kp UNDER     &kp FSLH      &kp NUMBER_1
-            >;
-        };
 
         /* =========================
            QWERTY LAYER
@@ -80,8 +75,36 @@
             bindings = <
                   &kp Q       &kp W       &kp E          &kp R         &kp T      &kp Y          &kp U         &kp I        &kp O       &kp P
                   &mt LGUI A  &mt LALT S  &mt LCTRL D    &mt LSHIFT F  &kp G      &kp H          &mt RSHIFT J  &mt RCTRL K  &mt RALT L  &mt RGUI SEMICOLON
-&lt 1 LEFT_SHIFT  &kp Z       &kp X       &kp C          &kp V         &kp B      &kp N          &kp M         &kp COMMA    &kp DOT     &kp SLASH           &tog 0
-                                          &mt LCTRL DEL  &lt 1 SPACE   &kp ESC    &kp BACKSPACE  &lt 2 ENTER   &kp MINUS
+&kp LEFT_SHIFT  &kp Z       &kp X       &kp C          &kp V         &kp B      &kp N          &kp M         &kp COMMA    &kp DOT     &kp SLASH   &tog 2
+                                          &ge LGUI ESC   &ct LCTRL LALT &kp BACKSPACE &kp SPACE      &kp ENTER    &mo 1
+            >;
+        };
+
+        /* =========================
+           SYMBOL / NUMBER LAYER
+           ========================= */
+
+        Symbols {
+            display-name = "Symbols";
+            bindings = <
+           &kp LBKT       &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp RBKT     &kp LBRC      &kp RBRC      &kp LPAR      &kp RPAR      &kp GRAVE
+           &kp AT_SIGN    &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp EQUAL    &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp BSLH
+&trans    &kp NUMBER_0   &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp DOT      &kp COMMA     &kp LT        &kp GT        &kp EXCL      &kp PIPE      &trans
+                                      &kp LSHIFT    &kp LCTRL    &kp LALT     &kp RALT      &kp RCTRL     &kp RSHIFT
+            >;
+        };
+
+        /* =========================
+           GAME LAYER
+           ========================= */
+
+        Game {
+            display-name = "Game";
+            bindings = <
+                  &kp TAB         &kp Z       &kp X       &kp C       &kp V      &trans      &trans      &trans      &trans      &trans
+                  &kp LEFT_SHIFT  &kp Q       &kp W       &kp E       &kp R      &trans      &trans      &trans      &trans      &trans
+&lt 1 LCTRL   &kp LCTRL      &kp A       &kp S       &kp D       &kp F      &trans      &trans      &trans      &trans      &trans      &tog 2
+                                             &kp ESC     &kp LALT    &kp SPACE  &kp BACKSPACE  &kp ENTER  &mo 1
             >;
         };
     };
